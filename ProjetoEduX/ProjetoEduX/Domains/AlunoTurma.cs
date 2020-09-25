@@ -16,7 +16,7 @@ namespace ProjetoEduX.Domains
         public Guid? IdUsuario { get; set; }
 
         public virtual Turma IdTurmaNavigation { get; set; }
-        public virtual Usuario IdUsuarioNavigation { get; set; }
+        public virtual Usuario IdUsuarioNavigation. { get; set; }
         public virtual ICollection<ObjetivoAluno> ObjetivoAluno { get; set; }
     }
 }
