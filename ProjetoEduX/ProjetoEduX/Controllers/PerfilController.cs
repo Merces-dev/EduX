@@ -60,7 +60,7 @@ namespace ProjetoEduX.Controllers
         /// Mostra um único perfil
         /// </summary>
         /// <param name="id">Id do perfil</param>
-        /// <returns>Um erfil</returns>
+        /// <returns>Um perfil</returns>
         [HttpGet("{id}")]
         public IActionResult Get(Guid id)
         {
@@ -83,7 +83,7 @@ namespace ProjetoEduX.Controllers
         /// <summary>
         /// Cadastra um perfil
         /// </summary>
-        /// <param name="erfil">Objeto completo deerfilo</param>
+        /// <param name="perfil">Objeto completo de perfil</param>
         /// <returns>perfil cadastrado</returns>
         [HttpPost]
         public IActionResult Post(Perfil perfil)
@@ -110,7 +110,7 @@ namespace ProjetoEduX.Controllers
         /// </summary>
         /// <param name="id">Id do perfil</param>
         /// <param name="perfil">Objeto do perfil com alterações</param>
-        /// <returns>erfil alterado</returns>
+        /// <returns>perfil alterado</returns>
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, Perfil perfil)
         {
