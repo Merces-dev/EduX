@@ -5,7 +5,18 @@ using System.Threading.Tasks;
 
 namespace ProjetoEduX.Domains
 {
-    public class BaseDomain
+    public abstract class BaseDomain
     {
+        public Guid Id { get; private set; }
+
+        public BaseDomain()
+        {
+            Id = Guid.NewGuid();
+        }
+
+        public void setId(Guid id)
+        {
+            this.Id = id;
+        }
     }
 }
