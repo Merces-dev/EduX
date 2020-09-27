@@ -14,7 +14,7 @@ namespace ProjetoEduX.Domains
             Id = Guid.NewGuid();
         }
 
-        public void setId(Guid id)
+        public void SetId(Guid id)
         {
             this.Id = id;
         }
