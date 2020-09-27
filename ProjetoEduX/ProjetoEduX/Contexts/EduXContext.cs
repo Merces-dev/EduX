@@ -11,7 +11,6 @@ namespace ProjetoEduX.Contexts
         SqlConnection con = new SqlConnection();
         public EduXContext()
         {
-            
         }
         public EduXContext(DbContextOptions<EduXContext> options)
             : base(options)
