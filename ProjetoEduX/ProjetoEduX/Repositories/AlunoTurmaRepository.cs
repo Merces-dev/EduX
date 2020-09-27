@@ -1,4 +1,5 @@
-﻿using ProjetoEduX.Domains;
+﻿using ProjetoEduX.Contexts;
+using ProjetoEduX.Domains;
 using ProjetoEduXGrupo.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -9,29 +10,90 @@ namespace ProjetoEduX.Repositories
 {
     public class AlunoTurmaRepository : IAlunoTurmaRepository
     {
+        private EduXContext _ctx = new EduXContext();
+
         public void Adicionar(AlunoTurma alunoturma)
         {
-            throw new NotImplementedException();
+            try
+            {
+
+                _ctx.Set<AlunoTurma>().Add(alunoturma);
+
+
+                _ctx.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
         }
 
         public AlunoTurma BuscarPorId(Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _ctx.AlunoTurma.Find(id);
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
         }
 
         public void Editar(AlunoTurma alunoturma)
         {
-            throw new NotImplementedException();
+            try
+            {
+
+                AlunoTurma alunoTurmaTemp = BuscarPorId(alunoturma.Id);
+
+
+                if (alunoTurmaTemp == null)
+                    throw new Exception("Aluno não foi encontrado");
+
+                //Caso exista, fará a alteração	
+                alunoTurmaTemp.Matricula = alunoturma.Matricula;
+                alunoTurmaTemp.IdUsuario = alunoturma.IdUsuario;
+                alunoTurmaTemp.IdTurma   = alunoturma.IdTurma;
+
+                _ctx.AlunoTurma.Update(alunoTurmaTemp);
+                _ctx.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
         }
 
         public List<AlunoTurma> Listar()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _ctx.AlunoTurma.ToList();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
         }
 
         public void Remover(Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                AlunoTurma alunoTurmaTemp = BuscarPorId(id);
+                _ctx.AlunoTurma.Remove(alunoTurmaTemp);
+                _ctx.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
         }
     }
 }
