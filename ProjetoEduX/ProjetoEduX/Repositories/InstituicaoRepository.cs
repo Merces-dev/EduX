@@ -64,7 +64,7 @@ namespace ProjetoEduX.Repositories
             try
             {
 
-                Instituicao instituicaoTemp = BuscarPorId(instituicao.Id);
+                Instituicao instituicaoTemp = BuscarPorId(instituicao.IdInstituicao);
 
 
                 if (instituicaoTemp == null)
