@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace ProjetoEduX.Domains
 {
-    public class BaseDomain 
+    public class BaseDomain
     {
-
         public Guid Id { get; private set; }
 
         public BaseDomain()
@@ -19,6 +18,5 @@ namespace ProjetoEduX.Domains
         {
             this.Id = id;
         }
-
     }
 }
