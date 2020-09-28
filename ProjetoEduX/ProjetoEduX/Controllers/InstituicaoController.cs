@@ -34,7 +34,14 @@ namespace ProjetoEduX.Controllers
                 if (instituicoes.Count == 0)
                     return NoContent();
 
-                return Ok(instituicoes);
+                return Ok(new
+                {
+                    totalCount = instituicoes.Count,
+                    data = instituicoes
+
+                });
+
+                
             }
             catch (Exception ex)
             {
@@ -88,7 +95,7 @@ namespace ProjetoEduX.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public IActionResult Post([FromForm] Instituicao instituicao)
+        public IActionResult Post(Instituicao instituicao)
         {
             try
             {

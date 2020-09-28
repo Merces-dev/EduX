@@ -10,7 +10,11 @@ namespace ProjetoEduX.Repositories
     public class InstituicaoRepository
     {
 
-        private EduXContext _ctx = new EduXContext();
+        private EduXContext _ctx;
+        public InstituicaoRepository()
+        {
+            _ctx = new EduXContext();
+        }
 
         /// <summary>
         /// Cria uma instituicao
@@ -21,7 +25,7 @@ namespace ProjetoEduX.Repositories
             try
             {
 
-                _ctx.Set<Instituicao>().Add(instituicao);
+                _ctx.Instituicao.Add(instituicao);
 
 
                 _ctx.SaveChanges();
@@ -42,7 +46,7 @@ namespace ProjetoEduX.Repositories
         {
             try
             {
-                return _ctx.Instituicao.Find(id);
+                return _ctx.Instituicao.FirstOrDefault(c => c.IdInstituicao == id);
             }
             catch (Exception ex)
             {
@@ -114,6 +118,9 @@ namespace ProjetoEduX.Repositories
             {
 
                 Instituicao instituicaoTemp = BuscarPorId(id);
+
+                if (instituicaoTemp == null)
+                    throw new Exception("Instituicao não encontrada");
 
 
                 _ctx.Instituicao.Remove(instituicaoTemp);
