@@ -29,12 +29,19 @@ namespace ProjetoEduX.Controllers
             try
             {
 
-                var instituicoes = _instituicaoRepository.Listar();
+                var instituicao = _instituicaoRepository.Listar();
 
-                if (instituicoes.Count == 0)
+                if (instituicao.Count == 0)
                     return NoContent();
 
-                return Ok(instituicoes);
+                return Ok(new
+                {
+                    totalCount = instituicao.Count,
+                    data = instituicao
+
+                });
+
+                
             }
             catch (Exception ex)
             {
@@ -88,7 +95,7 @@ namespace ProjetoEduX.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public IActionResult Post([FromForm] Instituicao instituicao)
+        public IActionResult Post(Instituicao instituicao)
         {
             try
             {
