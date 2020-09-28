@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ProjetoEduX.Domains
 {
-    public partial class Objetivo : BaseDomain
+    public partial class Objetivo
     {
         public Objetivo()
         {
