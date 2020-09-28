@@ -97,6 +97,9 @@ namespace ProjetoEduX.Controllers
         [HttpPost]
         public IActionResult Post(Instituicao instituicao)
         {
+
+            
+
             try
             {
                 _instituicaoRepository.Adicionar(instituicao);

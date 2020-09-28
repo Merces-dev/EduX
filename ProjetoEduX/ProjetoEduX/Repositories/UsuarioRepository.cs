@@ -64,7 +64,7 @@ namespace ProjetoEduX.Repositories
             try
             {
 
-                Usuario usuarioTemp = BuscarPorId(usuario.Id);
+                Usuario usuarioTemp = BuscarPorId(usuario.IdUsuario);
 
 
                 if (usuarioTemp == null)
