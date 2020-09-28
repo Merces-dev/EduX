@@ -11,6 +11,7 @@ namespace ProjetoEduX.Repositories
     public class AlunoTurmaRepository : IAlunoTurmaRepository
     {
         private EduXContext _ctx = new EduXContext();
+        #region Gravacao
 
         public void Adicionar(AlunoTurma alunoturma)
         {
@@ -28,12 +29,13 @@ namespace ProjetoEduX.Repositories
                 throw new Exception(ex.Message);
             }
         }
-
-        public AlunoTurma BuscarPorId(Guid id)
+        public void Remover(Guid id)
         {
             try
             {
-                return _ctx.AlunoTurma.Find(id);
+                AlunoTurma alunoTurmaTemp = BuscarPorId(id);
+                _ctx.AlunoTurma.Remove(alunoTurmaTemp);
+                _ctx.SaveChanges();
             }
             catch (Exception ex)
             {
@@ -41,6 +43,7 @@ namespace ProjetoEduX.Repositories
                 throw new Exception(ex.Message);
             }
         }
+       
 
         public void Editar(AlunoTurma alunoturma)
         {
@@ -67,7 +70,8 @@ namespace ProjetoEduX.Repositories
                 throw new Exception(ex.Message);
             }
         }
-
+        #endregion
+        #region leitura
         public List<AlunoTurma> Listar()
         {
             try
@@ -80,14 +84,11 @@ namespace ProjetoEduX.Repositories
                 throw new Exception(ex.Message);
             }
         }
-
-        public void Remover(Guid id)
+        public AlunoTurma BuscarPorId(Guid id)
         {
             try
             {
-                AlunoTurma alunoTurmaTemp = BuscarPorId(id);
-                _ctx.AlunoTurma.Remove(alunoTurmaTemp);
-                _ctx.SaveChanges();
+                return _ctx.AlunoTurma.Find(id);
             }
             catch (Exception ex)
             {
@@ -95,5 +96,7 @@ namespace ProjetoEduX.Repositories
                 throw new Exception(ex.Message);
             }
         }
+
+        #endregion
     }
 }
