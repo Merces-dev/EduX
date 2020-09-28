@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjetoEduX.Contexts;
 using ProjetoEduX.Domains;
+using ProjetoEduX.Repositories;
 
 namespace ProjetoEduX.Controllers
 {
@@ -14,97 +15,112 @@ namespace ProjetoEduX.Controllers
     [ApiController]
     public class ObjetivoAlunoController : ControllerBase
     {
-        private readonly EduXContext _context;
+        private readonly ObjetivoAlunoRepository _objetivoAlunoRepository;
 
-        public ObjetivoAlunoController(EduXContext context)
+        public ObjetivoAlunoController()
         {
-            _context = context;
+            _objetivoAlunoRepository = new ObjetivoAlunoRepository();
         }
 
         // GET: api/ObjetivoAluno
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ObjetivoAluno>>> GetObjetivoAluno()
+        public IActionResult Get()
         {
-            return await _context.ObjetivoAluno.ToListAsync();
+            try
+            {
+                var objetivosalunos = _objetivoAlunoRepository.Listar();
+
+                if (objetivosalunos.Count == 0)
+                    return NoContent();
+
+                return Ok(objetivosalunos);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET: api/ObjetivoAluno/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<ObjetivoAluno>> GetObjetivoAluno(Guid id)
+        public IActionResult Get(Guid id)
         {
-            var objetivoAluno = await _context.ObjetivoAluno.FindAsync(id);
-
-            if (objetivoAluno == null)
+            try
             {
-                return NotFound();
-            }
+                ObjetivoAluno objetivoaluno = _objetivoAlunoRepository.BuscarPorId(id);
 
-            return objetivoAluno;
+                if (objetivoaluno == null)
+                    return NotFound();
+
+                return Ok(objetivoaluno);
+
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
         }
 
         // PUT: api/ObjetivoAluno/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutObjetivoAluno(Guid id, ObjetivoAluno objetivoAluno)
+        public IActionResult Put(Guid id, ObjetivoAluno objetivoaluno)
         {
-            if (id != objetivoAluno.IdObjetivoAluno)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(objetivoAluno).State = EntityState.Modified;
-
             try
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ObjetivoAlunoExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+                _objetivoAlunoRepository.Editar(objetivoaluno);
 
-            return NoContent();
+                return Ok(objetivoaluno);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // POST: api/ObjetivoAluno
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<ObjetivoAluno>> PostObjetivoAluno(ObjetivoAluno objetivoAluno)
+        public IActionResult Post([FromForm] ObjetivoAluno objetivoaluno)
         {
-            _context.ObjetivoAluno.Add(objetivoAluno);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _objetivoAlunoRepository.Adicionar(objetivoaluno);
 
-            return CreatedAtAction("GetObjetivoAluno", new { id = objetivoAluno.IdObjetivoAluno }, objetivoAluno);
+
+                return Ok(objetivoaluno);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // DELETE: api/ObjetivoAluno/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<ObjetivoAluno>> DeleteObjetivoAluno(Guid id)
+        public IActionResult Delete(Guid id)
         {
-            var objetivoAluno = await _context.ObjetivoAluno.FindAsync(id);
-            if (objetivoAluno == null)
+            try
             {
-                return NotFound();
+
+                var objetivoaluno = _objetivoAlunoRepository.BuscarPorId(id);
+
+
+                if (objetivoaluno == null)
+                    return NotFound();
+
+
+                _objetivoAlunoRepository.Remover(id);
+
+                return Ok(id);
             }
-
-            _context.ObjetivoAluno.Remove(objetivoAluno);
-            await _context.SaveChangesAsync();
-
-            return objetivoAluno;
-        }
-
-        private bool ObjetivoAlunoExists(Guid id)
-        {
-            return _context.ObjetivoAluno.Any(e => e.IdObjetivoAluno == id);
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

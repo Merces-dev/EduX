@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ProjetoEduX.Domains
 {
-    public partial class ObjetivoAluno
+    public partial class ObjetivoAluno 
     {
         public Guid IdObjetivoAluno { get; set; }
         public decimal? Nota { get; set; }
