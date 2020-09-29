@@ -12,43 +12,43 @@ namespace ProjetoEduX.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DicaController : ControllerBase
+    public class CategoriaController : ControllerBase
     {
         private EduXContext _context = new EduXContext();
 
-        // GET: api/Dica
+        // GET: api/Categoria
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Dica>>> GetDica()
+        public async Task<ActionResult<IEnumerable<Categoria>>> GetCategoria()
         {
-            return await _context.Dica.ToListAsync();
+            return await _context.Categoria.ToListAsync();
         }
 
-        // GET: api/Dica/5
+        // GET: api/Categoria/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Dica>> GetDica(Guid id)
+        public async Task<ActionResult<Categoria>> GetCategoria(Guid id)
         {
-            var dica = await _context.Dica.FindAsync(id);
+            var categoria = await _context.Categoria.FindAsync(id);
 
-            if (dica == null)
+            if (categoria == null)
             {
                 return NotFound();
             }
 
-            return dica;
+            return categoria;
         }
 
-        // PUT: api/Dica/5
+        // PUT: api/Categoria/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutDica(Guid id, Dica dica)
+        public async Task<IActionResult> PutCategoria(Guid id, Categoria categoria)
         {
-            if (id != dica.IdDica)
+            if (id != categoria.IdCategoria)
             {
                 return BadRequest();
             }
 
-            _context.Entry(dica).State = EntityState.Modified;
+            _context.Entry(categoria).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace ProjetoEduX.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DicaExists(id))
+                if (!CategoriaExists(id))
                 {
                     return NotFound();
                 }
@@ -69,37 +69,37 @@ namespace ProjetoEduX.Controllers
             return NoContent();
         }
 
-        // POST: api/Dica
+        // POST: api/Categoria
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Dica>> PostDica(Dica dica)
+        public async Task<ActionResult<Categoria>> PostCategoria(Categoria categoria)
         {
-            _context.Dica.Add(dica);
+            _context.Categoria.Add(categoria);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetDica", new { id = dica.IdDica }, dica);
+            return CreatedAtAction("GetCategoria", new { id = categoria.IdCategoria }, categoria);
         }
 
-        // DELETE: api/Dica/5
+        // DELETE: api/Categoria/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Dica>> DeleteDica(Guid id)
+        public async Task<ActionResult<Categoria>> DeleteCategoria(Guid id)
         {
-            var dica = await _context.Dica.FindAsync(id);
-            if (dica == null)
+            var categoria = await _context.Categoria.FindAsync(id);
+            if (categoria == null)
             {
                 return NotFound();
             }
 
-            _context.Dica.Remove(dica);
+            _context.Categoria.Remove(categoria);
             await _context.SaveChangesAsync();
 
-            return dica;
+            return categoria;
         }
 
-        private bool DicaExists(Guid id)
+        private bool CategoriaExists(Guid id)
         {
-            return _context.Dica.Any(e => e.IdDica == id);
+            return _context.Categoria.Any(e => e.IdCategoria == id);
         }
     }
 }

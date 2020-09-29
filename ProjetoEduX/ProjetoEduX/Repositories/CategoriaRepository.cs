@@ -7,29 +7,29 @@ using System.Threading.Tasks;
 
 namespace ProjetoEduX.Repositories
 {
-    public class DicaRepository : IDicaRepository
+    public class CategoriaRepository : ICategoriaRepository
     {
-        public Task<Dica> Editar(Dica dica)
+        public Task<Categoria> Editar(Categoria categoria)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Dica> BuscarPorID(int id)
+        public Task<Categoria> BuscarPorID(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Dica> Remover(Dica dica)
+        public Task<Categoria> Remover(Categoria categoria)
         {
             throw new NotImplementedException();
         }
 
-        public Task<List<Dica>> Listar()
+        public Task<List<Categoria>> Listar()
         {
             throw new NotImplementedException();
         }
 
-        public Task<Dica> Adicionar(Dica dica)
+        public Task<Categoria> Adicionar(Categoria categoria)
         {
             throw new NotImplementedException();
         }
