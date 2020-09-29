@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ProjetoEduX.Domains
 {
-    public partial class ProfessorTurma
+    public partial class ProfessorTurma : BaseDomain
     {
         public Guid IdProfessorUsuario { get; set; }
         public string Descricao { get; set; }
