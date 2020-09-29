@@ -82,7 +82,7 @@ namespace ProjetoEduX.Contexts
                 entity.HasKey(e => e.IdCurso)
                     .HasName("PK__Curso__085F27D61FC59631");
 
-                entity.Property(e => e.IdCurso).HasDefaultValueSql("(newid())");
+                entity.Property(e => e.IdCurso).HasDefaultValueSql("(newid()) ");
 
                 entity.Property(e => e.Titulo)
                     .HasMaxLength(255)
