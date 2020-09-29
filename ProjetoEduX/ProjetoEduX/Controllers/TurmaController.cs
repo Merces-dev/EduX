@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ProjetoEduX.Contexts;
 using ProjetoEduX.Domains;
 using ProjetoEduX.Interfaces;
 using ProjetoEduX.Repositories;
@@ -15,8 +16,12 @@ namespace ProjetoEduX.Controllers
     [ApiController]
     public class TurmaController : ControllerBase
     {
-        private EduXContext _context = new EduXContext();
+        private readonly ITurmaRepository _turmaRepository;
 
+        public TurmaController()
+        {
+            _turmaRepository = new TurmaRepository();
+        }
 
         /// <summary>
         /// Mostar todos as turmas cadastradas

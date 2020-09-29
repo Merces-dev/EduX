@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ProjetoEduX.Contexts;
 using ProjetoEduX.Domains;
 using ProjetoEduX.Interfaces;
 
@@ -13,7 +14,13 @@ namespace ProjetoEduX.Controllers
     [ApiController]
     public class PerfilController : ControllerBase
     {
-        private EduXContext _context = new EduXContext();
+        private readonly IPerfilRepository _perfilRepository;
+
+        public PerfilController()
+        {
+            _perfilRepository = new PerfilRepository();
+        }
+
 
         /// <summary>
         /// Mostra todos os perfils cadastrados

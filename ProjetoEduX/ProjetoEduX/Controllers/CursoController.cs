@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ProjetoEduX.Contexts;
 using ProjetoEduX.Domains;
 using ProjetoEduX.Interfaces;
 using ProjetoEduX.Repositories;
@@ -17,7 +18,12 @@ namespace ProjetoEduX.Controllers
     {
 
 
-        private EduXContext _context = new EduXContext();
+
+        private readonly ICursoRepository _cursoRepository;
+        public CursoController()
+        {
+            _cursoRepository = new CursoRepository();
+        }
 
         /// <summary>
         /// Mostrar os cursos cadastrados

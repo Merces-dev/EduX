@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ProjetoEduX.Contexts;
 using ProjetoEduX.Domains;
 using ProjetoEduX.Interfaces;
 using ProjetoEduX.Repositories;
@@ -14,7 +15,13 @@ namespace ProjetoEduX.Controllers
     [ApiController]
     public class CurtidaController : ControllerBase
     {
-        private EduXContext _context = new EduXContext();
+        private readonly ICurtidaRepository _curtidaRepository;
+
+        public CurtidaController()
+        {
+            _curtidaRepository = new CurtidaRepository();
+        }
+
 
         /// <summary>
         /// Mostra todas as Curtidas cadastradas
