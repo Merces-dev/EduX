@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ProjetoEduX.Domains
 {
-    public partial class Usuario : BaseDomain
+    public partial class Usuario 
     {
         public Usuario()
         {
@@ -12,7 +12,6 @@ namespace ProjetoEduX.Domains
             Dica = new HashSet<Dica>();
             ProfessorTurma = new HashSet<ProfessorTurma>();
         }
-
         public Guid IdUsuario { get; set; }
         public string Nome { get; set; }
         public string Email { get; set; }

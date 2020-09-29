@@ -1,17 +1,17 @@
 ﻿using System;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ProjetoEduX.Domains;
 
 namespace ProjetoEduX.Contexts
 {
     public partial class EduXContext : DbContext
     {
+        SqlConnection con = new SqlConnection();
         public EduXContext()
         {
         }
-
         public EduXContext(DbContextOptions<EduXContext> options)
             : base(options)
         {
@@ -34,21 +34,19 @@ namespace ProjetoEduX.Contexts
         {
             if (!optionsBuilder.IsConfigured)
             {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=EduX;Persist Security Info=True;User ID=sa;Password=sa132");
-                  
-
-       
             }
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder) 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AlunoTurma>(entity =>
             {
-                entity.HasKey(e => e.IdAlunoTurma)
+                entity.HasKey(e => e.IdTurma)
                     .HasName("PK__AlunoTur__8F3223BD01378F08");
 
-                entity.Property(e => e.IdAlunoTurma).HasDefaultValueSql("(newid())");
+                entity.Property(e => e.IdTurma).HasDefaultValueSql("(newid())");
 
                 entity.Property(e => e.Matricula)
                     .HasMaxLength(50)
@@ -82,7 +80,7 @@ namespace ProjetoEduX.Contexts
                 entity.HasKey(e => e.IdCurso)
                     .HasName("PK__Curso__085F27D61FC59631");
 
-                entity.Property(e => e.IdCurso).HasDefaultValueSql("(newid()) ");
+                entity.Property(e => e.IdCurso).HasDefaultValueSql("(newid())");
 
                 entity.Property(e => e.Titulo)
                     .HasMaxLength(255)
@@ -118,7 +116,10 @@ namespace ProjetoEduX.Contexts
                     .HasName("PK__Dica__F1688516165E073F");
 
                 entity.Property(e => e.IdDica).HasDefaultValueSql("(newid())");
-                   
+
+                entity.Property(e => e.Imagem)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Texto)
                     .HasMaxLength(255)
