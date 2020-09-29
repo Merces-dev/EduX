@@ -17,12 +17,7 @@ namespace ProjetoEduX.Controllers
     {
 
 
-        private readonly ICursoRepository _cursoRepository;
-        public CursoController()
-        {
-            _cursoRepository = new CursoRepository();
-        }
-
+        private EduXContext _context = new EduXContext();
 
         /// <summary>
         /// Mostrar os cursos cadastrados

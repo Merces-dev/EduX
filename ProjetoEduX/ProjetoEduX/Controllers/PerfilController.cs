@@ -13,12 +13,7 @@ namespace ProjetoEduX.Controllers
     [ApiController]
     public class PerfilController : ControllerBase
     {
-        private readonly IPerfilRepository _perfilRepository;
-
-        public PerfilController()
-        {
-            _perfilRepository = new PerfilRepository();
-        }
+        private EduXContext _context = new EduXContext();
 
         /// <summary>
         /// Mostra todos os perfils cadastrados

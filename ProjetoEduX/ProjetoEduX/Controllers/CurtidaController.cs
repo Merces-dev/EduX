@@ -14,12 +14,7 @@ namespace ProjetoEduX.Controllers
     [ApiController]
     public class CurtidaController : ControllerBase
     {
-        private readonly ICurtidaRepository _curtidaRepository;
-
-        public CurtidaController()
-        {
-            _curtidaRepository = new CurtidaRepository();
-        }
+        private EduXContext _context = new EduXContext();
 
         /// <summary>
         /// Mostra todas as Curtidas cadastradas

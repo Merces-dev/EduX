@@ -15,12 +15,7 @@ namespace ProjetoEduX.Controllers
     [ApiController]
     public class ObjetivoController : ControllerBase
     {
-        private readonly ObjetivoRepository _objetivoRepository;
-
-        public ObjetivoController()
-        {
-            _objetivoRepository = new ObjetivoRepository();
-        }
+        private EduXContext _context = new EduXContext();
 
         // GET: api/Objetivo
         [HttpGet]

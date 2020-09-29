@@ -15,12 +15,7 @@ namespace ProjetoEduX.Controllers
     [ApiController]
     public class InstituicaoController : ControllerBase
     {
-        private readonly InstituicaoRepository _instituicaoRepository;
-
-        public InstituicaoController()
-        {
-            _instituicaoRepository = new InstituicaoRepository();
-        }
+        private EduXContext _context = new EduXContext();
 
         // GET: api/Instituicao
         [HttpGet]

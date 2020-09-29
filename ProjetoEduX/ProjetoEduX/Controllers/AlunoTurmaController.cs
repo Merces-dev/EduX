@@ -15,12 +15,7 @@ namespace ProjetoEduX.Controllers
     [ApiController]
     public class AlunoTurmaController : ControllerBase
     {
-        private readonly AlunoTurmaRepository _alunoTurmaRepository;
-
-        public AlunoTurmaController()
-        {
-            _alunoTurmaRepository = new AlunoTurmaRepository();
-        }
+        private EduXContext _context = new EduXContext();
 
         // GET: api/AlunoTurma
         [HttpGet]
