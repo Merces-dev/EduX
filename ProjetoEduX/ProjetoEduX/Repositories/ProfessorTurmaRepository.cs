@@ -47,7 +47,7 @@ namespace ProjetoEduX.Repositories
             try
             {
 
-                ProfessorTurma professorTurmaTemp = BuscarPorId(professorturma.Id);
+                ProfessorTurma professorTurmaTemp = BuscarPorId(professorturma.IdProfessorUsuario);
 
 
                 if (professorTurmaTemp == null)

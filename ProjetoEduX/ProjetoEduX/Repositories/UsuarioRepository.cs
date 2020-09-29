@@ -64,11 +64,11 @@ namespace ProjetoEduX.Repositories
             try
             {
 
-                Usuario usuarioTemp = BuscarPorId(usuario.Id);
+                Usuario usuarioTemp = BuscarPorId(usuario.IdUsuario);
 
 
                 if (usuarioTemp == null)
-                    throw new Exception("Instituição não encontrada");
+                    throw new Exception("Usuário não encontrado");
 
                 //Caso exista, fará a alteração
                 usuarioTemp.Nome = usuario.Nome;

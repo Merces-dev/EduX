@@ -50,7 +50,7 @@ namespace ProjetoEduX.Repositories
             try
             {
 
-                AlunoTurma alunoTurmaTemp = BuscarPorId(alunoturma.Id);
+                AlunoTurma alunoTurmaTemp = BuscarPorId(alunoturma.IdAlunoTurma);
 
 
                 if (alunoTurmaTemp == null)

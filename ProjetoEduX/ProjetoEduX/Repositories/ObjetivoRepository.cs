@@ -44,7 +44,7 @@ namespace ProjetoEduX.Repositories
         {
             try
             {
-                Objetivo objetivoTemp =  BuscarPorId(objetivo.Id);
+                Objetivo objetivoTemp =  BuscarPorId(objetivo.IdObjetivo);
                 if (objetivoTemp == null)
                     throw new Exception("Objetivo não encontrado");
                 objetivoTemp.Descricao = objetivo.Descricao;
