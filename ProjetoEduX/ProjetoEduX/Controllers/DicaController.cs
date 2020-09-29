@@ -80,12 +80,12 @@ namespace ProjetoEduX.Controllers
             try
             {
 
-                if (dica.Imagem != null)
-                {
-                    var urlImagem = Upload.Local(dica.Imagem);
+               // if (dica.Imagem != null)
+              //  {
+              //      var urlImagem = Upload.Local(dica.Imagem);
 
-                    dica.UrlImagem = urlImagem;
-                }
+              //      dica.UrlImagem = urlImagem;
+            //    }
 
                 _context.Dica.Add(dica);
                 await _context.SaveChangesAsync();
