@@ -44,16 +44,14 @@ namespace ProjetoEduX.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUsuario(Guid id, Usuario usuario)
         {
-
-
-
             if (id != usuario.IdUsuario)
             {
                 return BadRequest();
             }
 
-            //Criptografa a senha e define o salt como os 3 primeiros caracteres do email
-            usuario.Senha = Crypto.Criptografar(usuario.Senha, usuario.Email.Substring(0, 3));
+            //Chamando o método de criptografia
+            //Definindo o salt nas 5 primeiros caracteres do email
+            usuario.Senha = Crypto.Criptografar(usuario.Senha, usuario.Email.Substring(0, 5));
 
             _context.Entry(usuario).State = EntityState.Modified;
 
@@ -82,9 +80,10 @@ namespace ProjetoEduX.Controllers
         [HttpPost]
         public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
         {
+            //Chamando o método de criptografia
+            //Definindo o salt nas 5 primeiros caracteres do email
+            usuario.Senha = Crypto.Criptografar(usuario.Senha, usuario.Email.Substring(0, 5));
 
-            //Criptografa a senha e define o salt como os 3 primeiros caracteres do email
-            usuario.Senha = Crypto.Criptografar(usuario.Senha, usuario.Email.Substring(0, 3));
 
             _context.Usuario.Add(usuario);
             await _context.SaveChangesAsync();

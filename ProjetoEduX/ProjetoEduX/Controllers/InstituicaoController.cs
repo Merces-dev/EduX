@@ -29,15 +29,15 @@ namespace ProjetoEduX.Controllers
             try
             {
 
-                var instituicao = _instituicaoRepository.Listar();
+                var instituicoes = _instituicaoRepository.Listar();
 
-                if (instituicao.Count == 0)
+                if (instituicoes.Count == 0)
                     return NoContent();
 
                 return Ok(new
                 {
-                    totalCount = instituicao.Count,
-                    data = instituicao
+                    totalCount = instituicoes.Count,
+                    data = instituicoes
 
                 });
 
