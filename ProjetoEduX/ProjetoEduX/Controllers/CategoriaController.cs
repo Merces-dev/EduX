@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -41,6 +42,7 @@ namespace ProjetoEduX.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> PutCategoria(Guid id, Categoria categoria)
         {
             if (id != categoria.IdCategoria)
@@ -73,6 +75,7 @@ namespace ProjetoEduX.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<Categoria>> PostCategoria(Categoria categoria)
         {
             _context.Categoria.Add(categoria);
@@ -83,6 +86,7 @@ namespace ProjetoEduX.Controllers
 
         // DELETE: api/Categoria/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<ActionResult<Categoria>> DeleteCategoria(Guid id)
         {
             var categoria = await _context.Categoria.FindAsync(id);

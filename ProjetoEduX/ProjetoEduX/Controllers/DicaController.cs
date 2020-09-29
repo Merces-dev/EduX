@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjetoEduX.Contexts;
 using ProjetoEduX.Domains;
+using ProjetoEduX.Utils;
 
 namespace ProjetoEduX.Controllers
 {
@@ -75,10 +77,26 @@ namespace ProjetoEduX.Controllers
         [HttpPost]
         public async Task<ActionResult<Dica>> PostDica(Dica dica)
         {
-            _context.Dica.Add(dica);
-            await _context.SaveChangesAsync();
+            try
+            {
 
-            return CreatedAtAction("GetDica", new { id = dica.IdDica }, dica);
+                if (dica.Imagem != null)
+                {
+                    var urlImagem = Upload.Local(dica.Imagem);
+
+                    dica.UrlImagem = urlImagem;
+                }
+
+                _context.Dica.Add(dica);
+                await _context.SaveChangesAsync();
+
+                return CreatedAtAction("GetDica", new { id = dica.IdDica }, dica);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
 
         // DELETE: api/Dica/5
