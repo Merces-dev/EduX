@@ -16,7 +16,7 @@ namespace ProjetoEduX.Controllers
     [ApiController]
     public class TurmaController : ControllerBase
     {
-        private readonly ITurmaRepository _turmaRepository;
+        private readonly TurmaRepository _turmaRepository;
 
         public TurmaController()
         {

@@ -15,7 +15,7 @@ namespace ProjetoEduX.Controllers
     [ApiController]
     public class CurtidaController : ControllerBase
     {
-        private readonly ICurtidaRepository _curtidaRepository;
+        private readonly CurtidaRepository _curtidaRepository;
 
         public CurtidaController()
         {
@@ -46,6 +46,7 @@ namespace ProjetoEduX.Controllers
                 });
 
                 return Ok(curtida);
+
             }
             catch (Exception ex)
             {

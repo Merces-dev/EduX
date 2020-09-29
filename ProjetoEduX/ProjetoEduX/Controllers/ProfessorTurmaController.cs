@@ -15,7 +15,13 @@ namespace ProjetoEduX.Controllers
     [ApiController]
     public class ProfessorTurmaController : ControllerBase
     {
-        private EduXContext _context = new EduXContext();
+        private readonly ProfessorTurmaRepository _professorTurmaRepository;
+
+        public ProfessorTurmaController()
+        {
+            _professorTurmaRepository = new ProfessorTurmaRepository();
+        }
+
 
         // GET: api/ProfessorTurma
         [HttpGet]

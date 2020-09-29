@@ -17,9 +17,7 @@ namespace ProjetoEduX.Controllers
     public class CursoController : ControllerBase
     {
 
-
-
-        private readonly ICursoRepository _cursoRepository;
+        private readonly CursoRepository _cursoRepository;
         public CursoController()
         {
             _cursoRepository = new CursoRepository();

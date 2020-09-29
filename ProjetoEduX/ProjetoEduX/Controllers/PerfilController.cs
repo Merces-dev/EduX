@@ -14,7 +14,7 @@ namespace ProjetoEduX.Controllers
     [ApiController]
     public class PerfilController : ControllerBase
     {
-        private readonly IPerfilRepository _perfilRepository;
+        private readonly PerfilRepository _perfilRepository;
 
         public PerfilController()
         {
