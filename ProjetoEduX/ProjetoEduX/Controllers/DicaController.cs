@@ -19,6 +19,10 @@ namespace ProjetoEduX.Controllers
         private EduXContext _context = new EduXContext();
 
         // GET: api/Dica
+        /// <summary>
+        /// Mostra todas as dicas cadastradas
+        /// </summary>
+        /// <returns>Lista com todas as dicas</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Dica>>> GetDica()
         {
@@ -26,6 +30,11 @@ namespace ProjetoEduX.Controllers
         }
 
         // GET: api/Dica/5
+        /// <summary>
+        /// Mostra uma única dica
+        /// </summary>
+        /// <param name="id">Id da dica</param>
+        /// <returns>Uma dica</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Dica>> GetDica(Guid id)
         {
@@ -42,6 +51,13 @@ namespace ProjetoEduX.Controllers
         // PUT: api/Dica/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
+
+        /// <summary>
+        /// Altera determinada dica
+        /// </summary>
+        /// <param name="id">Id da dica</param>
+        /// <param name="dica">Objeto de dica com alterações</param>
+        /// <returns> dica alterada</returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutDica(Guid id, Dica dica)
         {
@@ -74,6 +90,12 @@ namespace ProjetoEduX.Controllers
         // POST: api/Dica
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
+
+        /// <summary>
+        /// Cadastra uma dica
+        /// </summary>
+        /// <param name="dica">Objeto completo de dica</param>
+        /// <returns>dica cadastrada</returns>
         [HttpPost]
         public async Task<ActionResult<Dica>> PostDica(Dica dica)
         {
@@ -100,6 +122,12 @@ namespace ProjetoEduX.Controllers
         }
 
         // DELETE: api/Dica/5
+
+        /// <summary>
+        /// Exclui uma dica
+        /// </summary>
+        /// <param name="id">Id da dica</param>
+        /// <returns>Id excluido</returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Dica>> DeleteDica(Guid id)
         {

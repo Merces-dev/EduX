@@ -23,6 +23,10 @@ namespace ProjetoEduX.Controllers
         }
 
         // GET: api/AlunoTurma
+        /// <summary>
+        /// Mostra todos os AlunoTurmas cadastrados
+        /// </summary>
+        /// <returns>Lista com todos os AlunoTurmas</returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -43,6 +47,11 @@ namespace ProjetoEduX.Controllers
         }
 
         // GET: api/AlunoTurma/5
+        /// <summary>
+        /// Mostra um único AlunoTurma
+        /// </summary>
+        /// <param name="id">Id do AlunoTurma</param>
+        /// <returns>Um AlunoTurma</returns>
         [HttpGet("{id}")]
         public IActionResult Get(Guid id)
         {
@@ -66,6 +75,13 @@ namespace ProjetoEduX.Controllers
         // PUT: api/AlunoTurma/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        /// <summary>
+        /// Altera determinado AlunoTurma 
+        /// </summary>
+        /// <param name="id">Id do AlunoTurma</param>
+        /// <param name="alunoTurma">Objeto do alunoturma com alterações</param>
+        /// <returns>alunoTurma alterado</returns>
+
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, AlunoTurma alunoTurma)
         {
@@ -84,6 +100,12 @@ namespace ProjetoEduX.Controllers
         // POST: api/AlunoTurma
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+
+        /// <summary>
+        /// Cadastra um AlunoTurma
+        /// </summary>
+        /// <param name="alunoTurma">Objeto completo de AlunoTurma</param>
+        /// <returns>perfil AlunoTurma</returns>
         [HttpPost]
         public IActionResult Post([FromForm] AlunoTurma alunoTurma)
         {
@@ -101,6 +123,11 @@ namespace ProjetoEduX.Controllers
         }
 
         // DELETE: api/AlunoTurma/5
+        /// <summary>
+        /// Exclui um AlunoTurma
+        /// </summary>
+        /// <param name="id">Id do AlunoTurma</param>
+        /// <returns>Id excluido</returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {

@@ -23,6 +23,10 @@ namespace ProjetoEduX.Controllers
         }
 
         // GET: api/Objetivo
+        /// <summary>
+        /// Mostra todos os Objetivos cadastrados
+        /// </summary>
+        /// <returns>Lista com todos os objetivos</returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -42,6 +46,11 @@ namespace ProjetoEduX.Controllers
         }
 
         // GET: api/Objetivo/5
+        /// <summary>
+        /// Mostra um único objetivo
+        /// </summary>
+        /// <param name="id">Id do Objetivo</param>
+        /// <returns>Um Objetivo</returns>
         [HttpGet("{id}")]
         public IActionResult Get(Guid id)
         {
@@ -65,6 +74,13 @@ namespace ProjetoEduX.Controllers
         // PUT: api/Objetivo/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+
+        /// <summary>
+        /// Altera determinado objetivo
+        /// </summary>
+        /// <param name="id">Id do Objetivo</param>
+        /// <param name="objetivo">Objeto de objetivo com alterações</param>
+        /// <returns> Objetivo alterado</returns>
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, Objetivo objetivo)
         {
@@ -83,6 +99,12 @@ namespace ProjetoEduX.Controllers
         // POST: api/Objetivo
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+
+        /// <summary>
+        /// Cadastra um Objetivo
+        /// </summary>
+        /// <param name="objetivo">Objeto completo de Objetivo</param>
+        /// <returns>Objetivo cadastrado</returns>
         [HttpPost]
         public IActionResult Post([FromForm] Objetivo objetivo)
         {
@@ -100,6 +122,11 @@ namespace ProjetoEduX.Controllers
         }
 
         // DELETE: api/Objetivo/5
+        /// <summary>
+        /// Exclui um objetivo
+        /// </summary>
+        /// <param name="id">Id do objetivo</param>
+        /// <returns>Id excluido</returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {

@@ -63,6 +63,11 @@ namespace ProjetoEduX.Controllers
 
 
         // Usamos essa anotação para ignorar a autenticação neste método, já que é ele quem fará isso  
+        /// <summary>
+        /// Cadastra um login
+        /// </summary>
+        /// <param name="login">Objeto completo de login</param>
+        /// <returns>login cadastrado</returns>
         [AllowAnonymous]
         [HttpPost]
         public IActionResult Login([FromBody]Usuario login)

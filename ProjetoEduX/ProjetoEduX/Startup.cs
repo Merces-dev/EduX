@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.IO;
+using Microsoft.OpenApi.Models;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -44,6 +47,34 @@ namespace ProjetoEduX
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                 };
             });
+
+            // método para criar o swagger na aplicação
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Edux API",
+                    Description = "Projeto Edux para ser usado no aprendizado",
+                    TermsOfService = new Uri("https://example.com/terms"),
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Grupo 4",
+                        Email = "Grupo4@gmail.com.br",
+                        Url = new Uri("https://twitter.com/grupo4"),
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "General",
+                        Url = new Uri("https://example.com/license"),
+                    }
+                });
+
+                // geração de comentários em XML da documentação dos métodos
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+            });
         }
 
 
@@ -61,6 +92,17 @@ namespace ProjetoEduX
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            // Uso efetivamente do swagger
+            app.UseSwagger();
+
+            // Definição do endpoint e o nome da versão
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Edux V1");
+            });
+
+            app.UseSwagger();
 
             app.UseEndpoints(endpoints =>
             {

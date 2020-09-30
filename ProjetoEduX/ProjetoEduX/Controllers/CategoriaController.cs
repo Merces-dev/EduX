@@ -18,6 +18,10 @@ namespace ProjetoEduX.Controllers
         private EduXContext _context = new EduXContext();
 
         // GET: api/Categoria
+        /// <summary>
+        /// Mostra todas as categorias cadastradas
+        /// </summary>
+        /// <returns>Lista com todas as categorias</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Categoria>>> GetCategoria()
         {
@@ -25,6 +29,11 @@ namespace ProjetoEduX.Controllers
         }
 
         // GET: api/Categoria/5
+        /// <summary>
+        /// Mostra uma única categoria 
+        /// </summary>
+        /// <param name="id">Id da categoria</param>
+        /// <returns>Uma categoria</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Categoria>> GetCategoria(Guid id)
         {
@@ -41,6 +50,13 @@ namespace ProjetoEduX.Controllers
         // PUT: api/Categoria/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
+
+        /// <summary>
+        /// Altera determinada categoria
+        /// </summary>
+        /// <param name="id">Id da categoria</param>
+        /// <param name="categoria">Objeto de categoria com alterações</param>
+        /// <returns>categoria alterada</returns>
         [HttpPut("{id}")]
         [Authorize]
         public async Task<IActionResult> PutCategoria(Guid id, Categoria categoria)
@@ -74,6 +90,12 @@ namespace ProjetoEduX.Controllers
         // POST: api/Categoria
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
+
+        /// <summary>
+        /// Cadastra uma categoria
+        /// </summary>
+        /// <param name="categoria">Objeto completo de categoria</param>
+        /// <returns>categoria cadastrada</returns>
         [HttpPost]
         [Authorize]
         public async Task<ActionResult<Categoria>> PostCategoria(Categoria categoria)
@@ -85,6 +107,12 @@ namespace ProjetoEduX.Controllers
         }
 
         // DELETE: api/Categoria/5
+
+        /// <summary>
+        /// Exclui uma categoria
+        /// </summary>
+        /// <param name="id">Id da categoria</param>
+        /// <returns>Id excluido</returns>
         [HttpDelete("{id}")]
         [Authorize]
         public async Task<ActionResult<Categoria>> DeleteCategoria(Guid id)

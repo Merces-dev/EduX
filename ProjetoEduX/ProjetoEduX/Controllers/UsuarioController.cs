@@ -17,6 +17,11 @@ namespace ProjetoEduX.Controllers
         private EduXContext _context = new EduXContext();
 
         // GET: api/Usuario
+        /// <summary>
+        /// Mostra todos os usuários cadastrados
+        /// </summary>
+        /// <returns>Lista com todos os usuários</returns>
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuario()
         {
@@ -24,6 +29,11 @@ namespace ProjetoEduX.Controllers
         }
 
         // GET: api/Usuario/5
+        /// <summary>
+        /// Mostra um único usuário
+        /// </summary>
+        /// <param name="id">Id do usuario</param>
+        /// <returns>Um usuario</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Usuario>> GetUsuario(Guid id)
         {
@@ -40,6 +50,13 @@ namespace ProjetoEduX.Controllers
         // PUT: api/Usuario/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+
+        /// <summary>
+        /// Altera determinado usuario   
+        /// </summary>
+        /// <param name="id">Id do usuario</param>
+        /// <param name="usuario">Objeto do usuario com alterações</param>
+        /// <returns>usuario alterado</returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUsuario(Guid id, Usuario usuario)
         {
@@ -77,6 +94,12 @@ namespace ProjetoEduX.Controllers
         // POST: api/Usuario
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+
+        /// <summary>
+        /// Cadastra um usuário
+        /// </summary>
+        /// <param name="usuario">Objeto completo de usuario</param>
+        /// <returns>usuario cadastrado</returns>
         [HttpPost]
         public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
         {
@@ -91,6 +114,11 @@ namespace ProjetoEduX.Controllers
         }
 
         // DELETE: api/Usuario/5
+        /// <summary>
+        /// Exclui um usuario
+        /// </summary>
+        /// <param name="id">Id do usuario</param>
+        /// <returns>Id usuario</returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Usuario>> DeleteUsuario(Guid id)
         {

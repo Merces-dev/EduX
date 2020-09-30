@@ -23,6 +23,10 @@ namespace ProjetoEduX.Controllers
         }
 
         // GET: api/Instituicao
+        /// <summary>
+        /// Mostra todas as instuições cadastradas
+        /// </summary>
+        /// <returns>Lista com todas as instituições</returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -51,6 +55,11 @@ namespace ProjetoEduX.Controllers
         }
 
         // GET: api/Instituicao/5
+        /// <summary>
+        /// Mostra uma única instituição
+        /// </summary>
+        /// <param name="id">Id da instituição</param>
+        /// <returns>Uma instituição</returns>
         [HttpGet("{id}")]
         public IActionResult Get(Guid id)
         {
@@ -74,6 +83,13 @@ namespace ProjetoEduX.Controllers
         // PUT: api/Instituicao/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+
+        /// <summary>
+        /// Altera determinada instituição
+        /// </summary>
+        /// <param name="id">Id da instituição</param>
+        /// <param name="instituicao">Objeto de instituição com alterações</param>
+        /// <returns> instituição alterada</returns>
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, Instituicao instituicao)
         {
@@ -94,6 +110,12 @@ namespace ProjetoEduX.Controllers
         // POST: api/Instituicao
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+
+        /// <summary>
+        /// Cadastra uma insituição
+        /// </summary>
+        /// <param name="instituicao">Objeto completo de instituição</param>
+        /// <returns>instituição cadastrada</returns>
         [HttpPost]
         public IActionResult Post(Instituicao instituicao)
         {
@@ -111,6 +133,11 @@ namespace ProjetoEduX.Controllers
         }
 
         // DELETE: api/Instituicao/5
+        /// <summary>
+        /// Exclui uma instituição
+        /// </summary>
+        /// <param name="id">Id da instituição</param>
+        /// <returns>Id excluido</returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
