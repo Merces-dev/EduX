@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using ProjetoEduX.Contexts;
 using ProjetoEduX.Domains;
 using ProjetoEduX.Interfaces;
 using ProjetoEduX.Repositories;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ProjetoEduX.Controllers
 {
@@ -17,7 +12,7 @@ namespace ProjetoEduX.Controllers
     public class CursoController : ControllerBase
     {
 
-        private readonly CursoRepository _cursoRepository;
+        private readonly ICursoRepository _cursoRepository;
         public CursoController()
         {
             _cursoRepository = new CursoRepository();
@@ -39,7 +34,7 @@ namespace ProjetoEduX.Controllers
 
                 return Ok(curso);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return BadRequest(new
                 {

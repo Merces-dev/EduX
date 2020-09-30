@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using ProjetoEduX.Contexts;
 using ProjetoEduX.Domains;
 using ProjetoEduX.Interfaces;
 using ProjetoEduX.Repositories;
@@ -16,7 +12,7 @@ namespace ProjetoEduX.Controllers
     [ApiController]
     public class TurmaController : ControllerBase
     {
-        private readonly TurmaRepository _turmaRepository;
+        private readonly ITurmaRepository _turmaRepository;
 
         public TurmaController()
         {
@@ -40,7 +36,7 @@ namespace ProjetoEduX.Controllers
 
                 return Ok(turma);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return BadRequest(new
                 {

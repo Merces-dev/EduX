@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ProjetoEduX.Contexts;
 using ProjetoEduX.Domains;
 using ProjetoEduX.Interfaces;
 using ProjetoEduX.Repositories;
@@ -15,7 +10,7 @@ namespace ProjetoEduX.Controllers
     [ApiController]
     public class CurtidaController : ControllerBase
     {
-        private readonly CurtidaRepository _curtidaRepository;
+        private readonly ICurtidaRepository _curtidaRepository;
 
         public CurtidaController()
         {
@@ -45,12 +40,9 @@ namespace ProjetoEduX.Controllers
 
                 });
 
-                return Ok(curtida);
-
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
                 return BadRequest(new
                 {
                     StatusCode = 400,
@@ -108,7 +100,7 @@ namespace ProjetoEduX.Controllers
 
         }
 
-       
+
         // DELETE api/curtida/5
         /// <summary>
         /// Exclui uma curtida

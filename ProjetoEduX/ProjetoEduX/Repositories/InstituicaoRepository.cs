@@ -1,5 +1,6 @@
 ﻿using ProjetoEduX.Contexts;
 using ProjetoEduX.Domains;
+using ProjetoEduX.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoEduX.Repositories
 {
-    public class InstituicaoRepository
+    public class InstituicaoRepository : IInstituicaoRepository
     {
 
         private EduXContext _ctx;

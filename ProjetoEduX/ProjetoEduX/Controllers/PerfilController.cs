@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ProjetoEduX.Contexts;
 using ProjetoEduX.Domains;
 using ProjetoEduX.Interfaces;
 
@@ -14,7 +9,7 @@ namespace ProjetoEduX.Controllers
     [ApiController]
     public class PerfilController : ControllerBase
     {
-        private readonly PerfilRepository _perfilRepository;
+        private readonly IPerfilRepository _perfilRepository;
         
         public PerfilController()
         {
@@ -43,10 +38,8 @@ namespace ProjetoEduX.Controllers
                     data = perfil
 
                 });
-
-                return Ok(perfil);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 return BadRequest(new

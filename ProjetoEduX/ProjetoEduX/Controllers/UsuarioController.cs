@@ -14,7 +14,12 @@ namespace ProjetoEduX.Controllers
     [ApiController]
     public class UsuarioController : ControllerBase
     {
-        private EduXContext _context = new EduXContext();
+        private readonly EduXContext _context;
+
+        public UsuarioController(EduXContext context)
+        {
+            _context = context;
+        }
 
         // GET: api/Usuario
         /// <summary>

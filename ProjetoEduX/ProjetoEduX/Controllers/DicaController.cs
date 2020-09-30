@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjetoEduX.Contexts;
@@ -16,7 +14,12 @@ namespace ProjetoEduX.Controllers
     [ApiController]
     public class DicaController : ControllerBase
     {
-        private EduXContext _context = new EduXContext();
+        private readonly EduXContext _context;
+
+        public DicaController(EduXContext context)
+        {
+            _context = context;
+        }
 
         // GET: api/Dica
         /// <summary>
@@ -97,17 +100,17 @@ namespace ProjetoEduX.Controllers
         /// <param name="dica">Objeto completo de dica</param>
         /// <returns>dica cadastrada</returns>
         [HttpPost]
-        public async Task<ActionResult<Dica>> PostDica(Dica dica)
+        public async Task<ActionResult<Dica>> PostDica([FromForm] Dica dica)
         {
             try
             {
 
-               // if (dica.Imagem != null)
-              //  {
-              //      var urlImagem = Upload.Local(dica.Imagem);
+                if (dica.Imagem != null)
+                {
+                    var urlImagem = Upload.Local(dica.Imagem);
 
-              //      dica.UrlImagem = urlImagem;
-            //    }
+                    dica.UrlImagem = urlImagem;
+                }
 
                 _context.Dica.Add(dica);
                 await _context.SaveChangesAsync();

@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using ProjetoEduX.Contexts;
 using ProjetoEduX.Domains;
 using ProjetoEduX.Repositories;
+using ProjetoEduXGrupo.Interfaces;
 
 namespace ProjetoEduX.Controllers
 {
@@ -15,7 +10,7 @@ namespace ProjetoEduX.Controllers
     [ApiController]
     public class AlunoTurmaController : ControllerBase
     {
-        private readonly AlunoTurmaRepository _alunoTurmaRepository;
+        private readonly IAlunoTurmaRepository _alunoTurmaRepository;
 
         public AlunoTurmaController()
         {

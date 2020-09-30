@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjetoEduX.Contexts;
@@ -15,7 +14,14 @@ namespace ProjetoEduX.Controllers
     [ApiController]
     public class CategoriaController : ControllerBase
     {
-        private EduXContext _context = new EduXContext();
+        
+        private readonly EduXContext _context;
+
+        public CategoriaController(EduXContext context)
+        {
+            _context = context;
+        }
+
 
         // GET: api/Categoria
         /// <summary>
