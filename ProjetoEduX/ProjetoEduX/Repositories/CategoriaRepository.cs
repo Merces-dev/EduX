@@ -14,7 +14,7 @@ namespace ProjetoEduX.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<Categoria> BuscarPorID(int id)
+        public Task<Categoria> BuscarPorID(Guid id)
         {
             throw new NotImplementedException();
         }

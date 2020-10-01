@@ -10,7 +10,7 @@ namespace ProjetoEduX.Interfaces
     {
         Task<List<Categoria>> Listar();
 
-        Task<Categoria> BuscarPorID(int id);
+        Task<Categoria> BuscarPorID(Guid id);
 
         Task<Categoria> Adicionar(Categoria categoria);
 

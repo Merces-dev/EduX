@@ -15,6 +15,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using ProjetoEduX.Contexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace ProjetoEduX
 {
@@ -24,12 +26,20 @@ namespace ProjetoEduX
         {
             Configuration = configuration;
         }
+        
+
 
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
+            //Conexão retirada da documentação da microsoft
+            var connectionString = "connection string to database";
+
+            services.AddDbContext<EduXContext>(ServiceLifetime.Scoped);
+
             services.AddControllers();
 
             // JWT

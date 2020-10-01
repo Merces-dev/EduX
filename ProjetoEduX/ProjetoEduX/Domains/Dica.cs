@@ -22,8 +22,10 @@ namespace ProjetoEduX.Domains
 
         [NotMapped]
         [JsonIgnore]
+        // "Nullable IFormFile", IFormFile?, won't throw an error in the cast in EF
         public IFormFile Imagem { get; set; }
-
+        [NotMapped]
+        [JsonIgnore]
         public string UrlImagem { get; set; }
 
 

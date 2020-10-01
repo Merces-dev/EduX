@@ -20,7 +20,7 @@ namespace ProjetoEduX.Controllers
         {
             _context = context;
         }
-
+       
         // GET: api/Dica
         /// <summary>
         /// Mostra todas as dicas cadastradas
@@ -115,7 +115,7 @@ namespace ProjetoEduX.Controllers
                 _context.Dica.Add(dica);
                 await _context.SaveChangesAsync();
 
-                return CreatedAtAction("GetDica", new { id = dica.IdDica }, dica);
+                return Ok(dica);
             }
             catch (Exception ex)
             {

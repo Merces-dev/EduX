@@ -10,7 +10,7 @@ namespace ProjetoEduX.Interfaces
     {
         Task<List<Dica>> Listar();
 
-        Task<Dica> BuscarPorID(int id);
+        Task<Dica> BuscarPorID(Guid id);
 
         Task<Dica> Adicionar(Dica dica);
 
