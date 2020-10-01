@@ -40,7 +40,8 @@ O aluno poderá ver seu ranking geral;
 O aluno poderá postar algum conteúdo em imagem e/ou texto;
 O aluno poderá ver a timeline de posts da sua turma;
 O aluno poderá ver dicas cadastradas pelo professor, separado por temas;
-
-
+#
+# --------
+#
 
 ![diagrama](https://cdn.discordapp.com/attachments/741084889947832403/761298590894653440/unknown.png)
