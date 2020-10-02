@@ -24,6 +24,8 @@ namespace ProjetoEduX.Controllers
         /// </summary>
         /// <returns>Lista com todas as instituições</returns>
         [HttpGet]
+       
+
         public IActionResult Get()
         {
             try
@@ -57,6 +59,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id">Id da instituição</param>
         /// <returns>Uma instituição</returns>
         [HttpGet("{id}")]
+   
         public IActionResult Get(Guid id)
         {
             try

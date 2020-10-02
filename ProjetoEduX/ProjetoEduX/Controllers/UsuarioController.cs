@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjetoEduX.Contexts;
 using ProjetoEduX.Domains;
@@ -28,6 +29,7 @@ namespace ProjetoEduX.Controllers
         /// <returns>Lista com todos os usuários</returns>
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuario()
         {
             return await _context.Usuario.ToListAsync();
@@ -40,6 +42,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id">Id do usuario</param>
         /// <returns>Um usuario</returns>
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<Usuario>> GetUsuario(Guid id)
         {
             var usuario = await _context.Usuario.FindAsync(id);
@@ -63,6 +66,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="usuario">Objeto do usuario com alterações</param>
         /// <returns>usuario alterado</returns>
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> PutUsuario(Guid id, Usuario usuario)
         {
 
@@ -106,6 +110,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="usuario">Objeto completo de usuario</param>
         /// <returns>usuario cadastrado</returns>
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
         {
 
@@ -125,6 +130,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id">Id do usuario</param>
         /// <returns>Id usuario</returns>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<Usuario>> DeleteUsuario(Guid id)
         {
             var usuario = await _context.Usuario.FindAsync(id);

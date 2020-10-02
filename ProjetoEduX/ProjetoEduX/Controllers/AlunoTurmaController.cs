@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProjetoEduX.Domains;
 using ProjetoEduX.Repositories;
@@ -23,6 +24,7 @@ namespace ProjetoEduX.Controllers
         /// </summary>
         /// <returns>Lista com todos os AlunoTurmas</returns>
         [HttpGet]
+        [Authorize(Roles = "Admin,Padrao")]
         public IActionResult Get()
         {
             try
@@ -48,6 +50,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id">Id do AlunoTurma</param>
         /// <returns>Um AlunoTurma</returns>
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin,Padrao")]
         public IActionResult Get(Guid id)
         {
             try
@@ -78,6 +81,7 @@ namespace ProjetoEduX.Controllers
         /// <returns>alunoTurma alterado</returns>
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Put(Guid id, AlunoTurma alunoTurma)
         {
             try
@@ -102,6 +106,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="alunoTurma">Objeto completo de AlunoTurma</param>
         /// <returns>perfil AlunoTurma</returns>
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IActionResult Post([FromForm] AlunoTurma alunoTurma)
         {
             try
@@ -124,6 +129,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id">Id do AlunoTurma</param>
         /// <returns>Id excluido</returns>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(Guid id)
         {
             try

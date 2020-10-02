@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProjetoEduX.Domains;
 using ProjetoEduX.Interfaces;
@@ -25,6 +26,7 @@ namespace ProjetoEduX.Controllers
         /// <returns>Lista com as Turmas</returns>
         ///
         [HttpGet]
+        [Authorize(Roles = "Admin,Padrao")]
         public IActionResult Get()
         {
             try
@@ -52,6 +54,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id"></param>
         /// <returns>Retorna o Id da turma escolhida</returns>
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin,Padrao")]
         public IActionResult Get(Guid id)
         {
            try
@@ -73,6 +76,7 @@ namespace ProjetoEduX.Controllers
         /// </summary>
         /// <param name="turma"></param>
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IActionResult Post (Turma turma)
         {
             try
@@ -93,6 +97,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id"></param>
         /// <param name="turma"></param>
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Put(Guid id, Turma turma)
         {
             try
@@ -112,6 +117,7 @@ namespace ProjetoEduX.Controllers
         /// </summary>
         /// <param name="id"></param>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(Guid id)
         {
             try

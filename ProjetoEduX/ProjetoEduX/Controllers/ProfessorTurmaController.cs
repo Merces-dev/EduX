@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProjetoEduX.Domains;
 using ProjetoEduX.Interfaces;
@@ -24,6 +25,7 @@ namespace ProjetoEduX.Controllers
         /// </summary>
         /// <returns>Lista com todos os ProfessorTurmas</returns>
         [HttpGet]
+        [Authorize(Roles = "Admin,Padrao")]
         public IActionResult Get()
         {
             try
@@ -50,6 +52,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id">Id do ProfessorTurma</param>
         /// <returns>Um ProfessorTurma</returns>
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin,Padrao")]
         public IActionResult Get(Guid id)
         {
             try
@@ -74,12 +77,13 @@ namespace ProjetoEduX.Controllers
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
 
         /// <summary>
-        /// Altera determinado ProfessorTurmar
+        /// Altera determinado ProfessorTurma
         /// </summary>
         /// <param name="id">Id do ProfessorTurma</param>
         /// <param name="professorTurma">Objeto de ProfessorTurma com alterações</param>
         /// <returns> ProfessorTurma alterado</returns>
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Put(Guid id, ProfessorTurma professorTurma)
         {
             try
@@ -103,6 +107,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="professorTurma">Objeto completo de ProfessorTurma</param>
         /// <returns>ProfessorTurma cadastrado</returns>
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IActionResult Post([FromForm] ProfessorTurma professorTurma)
         {
             try
@@ -125,6 +130,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id">Id do ProfessorTurma</param>
         /// <returns>Id excluido</returns>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(Guid id)
         {
             try

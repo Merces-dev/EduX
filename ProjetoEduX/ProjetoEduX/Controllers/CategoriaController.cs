@@ -29,6 +29,7 @@ namespace ProjetoEduX.Controllers
         /// </summary>
         /// <returns>Lista com todas as categorias</returns>
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<Categoria>>> GetCategoria()
         {
             return await _context.Categoria.ToListAsync();
@@ -41,6 +42,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id">Id da categoria</param>
         /// <returns>Uma categoria</returns>
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<Categoria>> GetCategoria(Guid id)
         {
             var categoria = await _context.Categoria.FindAsync(id);
@@ -64,7 +66,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="categoria">Objeto de categoria com alterações</param>
         /// <returns>categoria alterada</returns>
         [HttpPut("{id}")]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> PutCategoria(Guid id, Categoria categoria)
         {
             if (id != categoria.IdCategoria)
@@ -103,7 +105,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="categoria">Objeto completo de categoria</param>
         /// <returns>categoria cadastrada</returns>
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<Categoria>> PostCategoria(Categoria categoria)
         {
             _context.Categoria.Add(categoria);
@@ -120,7 +122,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id">Id da categoria</param>
         /// <returns>Id excluido</returns>
         [HttpDelete("{id}")]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<Categoria>> DeleteCategoria(Guid id)
         {
             var categoria = await _context.Categoria.FindAsync(id);

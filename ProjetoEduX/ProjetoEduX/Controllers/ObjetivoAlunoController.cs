@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProjetoEduX.Domains;
 using ProjetoEduX.Interfaces;
@@ -23,6 +24,7 @@ namespace ProjetoEduX.Controllers
         /// </summary>
         /// <returns>Lista com todos os objetivoAlunos</returns>
         [HttpGet]
+        [Authorize(Roles = "Admin,Padrao")]
         public IActionResult Get()
         {
             try
@@ -47,6 +49,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id">Id do ObjetivoAluno</param>
         /// <returns>Um ObjetivoAluno</returns>
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin,Padrao")]
         public IActionResult Get(Guid id)
         {
             try
@@ -77,6 +80,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="objetivoaluno">Objeto de objetivoAluno com alterações</param>
         /// <returns> ObjetivoAluno alterada</returns>
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Put(Guid id, ObjetivoAluno objetivoaluno)
         {
             try
@@ -101,6 +105,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="objetivoaluno">Objeto completo de ObjetivoAluno</param>
         /// <returns>ObjetivoAluno cadastrado</returns>
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IActionResult Post([FromForm] ObjetivoAluno objetivoaluno)
         {
             try
@@ -123,6 +128,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id">Id do objetivoAluno</param>
         /// <returns>Id excluido</returns>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(Guid id)
         {
             try

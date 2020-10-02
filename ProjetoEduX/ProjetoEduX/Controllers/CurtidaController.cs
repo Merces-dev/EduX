@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProjetoEduX.Domains;
 using ProjetoEduX.Interfaces;
@@ -24,6 +25,7 @@ namespace ProjetoEduX.Controllers
         /// <returns>Lista com todas as curtidas</returns>
 
         [HttpGet]
+        [Authorize(Roles = "Admin,Padrao")]
         public IActionResult Get()
         {
             try
@@ -58,6 +60,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id">Id da curtida</param>
         /// <returns>Uma curtida</returns>
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin,Padrao")]
         public IActionResult Get(Guid id)
         {
             try
@@ -82,6 +85,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="curtida">Objeto completo de curtida</param>
         /// <returns>curtida cadastrada</returns>
         [HttpPost]
+        [Authorize(Roles = "Admin,Padrao")]
         public IActionResult Post(Curtida curtida)
         {
             try
@@ -108,6 +112,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id">Id da curtida</param>
         /// <returns>Id excluido</returns>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin,Padrao")]
         public IActionResult Delete(Guid id)
         {
             try

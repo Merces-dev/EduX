@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjetoEduX.Contexts;
@@ -27,6 +28,7 @@ namespace ProjetoEduX.Controllers
         /// </summary>
         /// <returns>Lista com todas as dicas</returns>
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<Dica>>> GetDica()
         {
             return await _context.Dica.ToListAsync();
@@ -39,6 +41,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id">Id da dica</param>
         /// <returns>Uma dica</returns>
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<Dica>> GetDica(Guid id)
         {
             var dica = await _context.Dica.FindAsync(id);
@@ -62,6 +65,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="dica">Objeto de dica com alterações</param>
         /// <returns> dica alterada</returns>
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> PutDica(Guid id, Dica dica)
         {
             if (id != dica.IdDica)
@@ -100,6 +104,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="dica">Objeto completo de dica</param>
         /// <returns>dica cadastrada</returns>
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<Dica>> PostDica([FromForm] Dica dica)
         {
             try
@@ -132,6 +137,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id">Id da dica</param>
         /// <returns>Id excluido</returns>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<Dica>> DeleteDica(Guid id)
         {
             var dica = await _context.Dica.FindAsync(id);
