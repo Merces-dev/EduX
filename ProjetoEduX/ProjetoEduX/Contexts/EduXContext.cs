@@ -34,7 +34,7 @@ namespace ProjetoEduX.Contexts
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-UTGRE9J\SQLEXPRESS;Initial Catalog=edux;Integrated Security=True");
+                optionsBuilder.UseSqlServer(@"Data Source=.\SQLEXPRESS;Initial Catalog=edux;Integrated Security=True");
             }
         }
 

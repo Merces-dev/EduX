@@ -84,6 +84,7 @@ namespace ProjetoEduX.Repositories
                 throw new Exception(ex.Message);
             }
         }
+
         public AlunoTurma BuscarPorId(Guid id)
         {
             try

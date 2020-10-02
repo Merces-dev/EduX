@@ -1,0 +1,1869 @@
+{
+	"info": {
+		"_postman_id": "21ad5f11-0d7d-4b8c-9a0f-08d0b8d0b9ee",
+		"name": "EduX ",
+		"description": "Com o intuito de trazer uma experiência gamificada para os alunos, os docentes Diego e Paulo propuseram elaborar um projeto chamado EduX, assim, foi realizada pelos desenvolvedores (Maria Eduarda, Mateus Gatti, Giovani Merces, Kailane Pereira e Henrique Leandro) a api do projeto.\r\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Gerar token de autenticação login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"nome\": \"Maria Eduarda Silva\",\r\n     \"email\": \"MaduSilva@Email.com\",\r\n     \"senha\": \"19042003\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Perfil",
+			"item": [
+				{
+					"name": "Adicionar Perfil",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJIZW5yaXF1ZSBMZWFuZHJvIiwiZW1haWwiOiJIZW5yaXF1ZTIyQGdtYWlsLmNvbSIsImp0aSI6ImZkOTM4YThhLTc5MDctNDQ5NS04NTI2LWNjYWUxYWExMGFjYSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluaXN0cmFkb3IiLCJleHAiOjE2MDA0NTE5MDEsImlzcyI6Im55b3VzLmNvbS5iciIsImF1ZCI6Im55b3VzLmNvbS5iciJ9._U1rYCZ3Qk5Ghu3EIiK7rDO5gwEFjCP1WqHx41m4wTI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"Permissao\": \"Admin\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/perfil",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"perfil"
+							]
+						},
+						"description": "Esse método adiciona um perfil"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Perfis",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJIZW5yaXF1ZSBMZWFuZHJvIiwiZW1haWwiOiJIZW5yaXF1ZTIyQGdtYWlsLmNvbSIsImp0aSI6ImZkOTM4YThhLTc5MDctNDQ5NS04NTI2LWNjYWUxYWExMGFjYSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluaXN0cmFkb3IiLCJleHAiOjE2MDA0NTE5MDEsImlzcyI6Im55b3VzLmNvbS5iciIsImF1ZCI6Im55b3VzLmNvbS5iciJ9._U1rYCZ3Qk5Ghu3EIiK7rDO5gwEFjCP1WqHx41m4wTI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/perfil",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"perfil"
+							]
+						},
+						"description": "Esse método lista todos os perfis cadastrados"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Perfis por ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJIZW5yaXF1ZSBMZWFuZHJvIiwiZW1haWwiOiJIZW5yaXF1ZTIyQGdtYWlsLmNvbSIsImp0aSI6ImZkOTM4YThhLTc5MDctNDQ5NS04NTI2LWNjYWUxYWExMGFjYSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluaXN0cmFkb3IiLCJleHAiOjE2MDA0NTE5MDEsImlzcyI6Im55b3VzLmNvbS5iciIsImF1ZCI6Im55b3VzLmNvbS5iciJ9._U1rYCZ3Qk5Ghu3EIiK7rDO5gwEFjCP1WqHx41m4wTI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:64698/api/perfil/123fb88a-5c05-42b9-a509-790f8c3a2f09",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"perfil",
+								"123fb88a-5c05-42b9-a509-790f8c3a2f09"
+							]
+						},
+						"description": "Esse método busca os perfis cadastrados pelo seu ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Perfil",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJIZW5yaXF1ZSBMZWFuZHJvIiwiZW1haWwiOiJIZW5yaXF1ZTIyQGdtYWlsLmNvbSIsImp0aSI6ImZkOTM4YThhLTc5MDctNDQ5NS04NTI2LWNjYWUxYWExMGFjYSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluaXN0cmFkb3IiLCJleHAiOjE2MDA0NTE5MDEsImlzcyI6Im55b3VzLmNvbS5iciIsImF1ZCI6Im55b3VzLmNvbS5iciJ9._U1rYCZ3Qk5Ghu3EIiK7rDO5gwEFjCP1WqHx41m4wTI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idPerfil\": \"bd0f8219-acda-4f97-8c32-691ef775b570\",\r\n    \"Permissao\": \"Teste4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/perfil/bd0f8219-acda-4f97-8c32-691ef775b570",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"perfil",
+								"bd0f8219-acda-4f97-8c32-691ef775b570"
+							]
+						},
+						"description": "Esse método edita as informações do perfil cadastrado"
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Perfil",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJNYXJpYSBFZHVhcmRhIFNpbHZhIiwiZW1haWwiOiJNYWR1U2lsdmFARW1haWwuY29tIiwianRpIjoiY2YyMDY3Y2YtNGNiYi00MGUyLTlmNWYtNGRiZTRlNzE0ODcwIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE2MDE2NTc4NDMsImlzcyI6ImVkdXguY29tIiwiYXVkIjoiZWR1eC5jb20ifQ.UkZ-Kv2euaKe-8RGSgdaTFPgitUOYnimt8viQNNN1JM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n           \"idPerfil\": \"bd0f8219-acda-4f97-8c32-691ef775b570\",\r\n            \"permissao\": \"Teste4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/perfil/bd0f8219-acda-4f97-8c32-691ef775b570",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"perfil",
+								"bd0f8219-acda-4f97-8c32-691ef775b570"
+							]
+						},
+						"description": "Esse método remove um perfil e apenas administradores (admin) podem executá-lo"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Adicionar Usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJNYXJpYSBFZHVhcmRhIFNpbHZhIiwiZW1haWwiOiJNYWR1U2lsdmFARW1haWwuY29tIiwianRpIjoiNGY2ZDM2ZjAtMjgyNi00ZjFiLTg1NWEtYzE3NGQ0MWZkMmRlIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE2MDE2NjE2MzQsImlzcyI6ImVkdXguY29tIiwiYXVkIjoiZWR1eC5jb20ifQ.oKeK72Ysikc1u13wJoen2KTJXcksSWRppsbKrGQLRQU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Paulo Brandão Oficial\",\r\n    \"email\": \"Paulo@gmail.com\",\r\n    \"senha\": \"Paulo123\",\r\n    \"dataCadastro\": \"2020-05-02T00:00:00\",\r\n    \"dataUltimoAcesso\": \"2020-08-21T00:00:00\",\r\n    \"idPerfil\": \"123FB88A-5C05-42B9-A509-790F8C3A2F09\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"usuario"
+							]
+						},
+						"description": "Esse método cadastra um usuário"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Usuarios",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJNYXJpYSBFZHVhcmRhIFNpbHZhIiwiZW1haWwiOiJNYWR1U2lsdmFARW1haWwuY29tIiwianRpIjoiNGY2ZDM2ZjAtMjgyNi00ZjFiLTg1NWEtYzE3NGQ0MWZkMmRlIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE2MDE2NjE2MzQsImlzcyI6ImVkdXguY29tIiwiYXVkIjoiZWR1eC5jb20ifQ.oKeK72Ysikc1u13wJoen2KTJXcksSWRppsbKrGQLRQU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:64698/api/usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"usuario"
+							]
+						},
+						"description": "Esse método lista os usuários cadastrados"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Usuarios por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:64698/api/usuario/d00492ff-156f-4f24-a0d4-539f4a3cf086",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"usuario",
+								"d00492ff-156f-4f24-a0d4-539f4a3cf086"
+							]
+						},
+						"description": "Esse método busca os usuarios cadastrados pelo seu ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJNYXJpYSBFZHVhcmRhIFNpbHZhIiwiZW1haWwiOiJNYWR1U2lsdmFARW1haWwuY29tIiwianRpIjoiNGY2ZDM2ZjAtMjgyNi00ZjFiLTg1NWEtYzE3NGQ0MWZkMmRlIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE2MDE2NjE2MzQsImlzcyI6ImVkdXguY29tIiwiYXVkIjoiZWR1eC5jb20ifQ.oKeK72Ysikc1u13wJoen2KTJXcksSWRppsbKrGQLRQU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"idUsuario\": \"2428f5b7-9ca7-4994-bc5e-6aec198f35fa\",\r\n    \"nome\": \"Paulo Brandão Silva\",\r\n    \"email\": \"Paulo@gmail.com\",\r\n    \"senha\": \"Paulo123\",\r\n    \"dataCadastro\": \"2020-05-02T00:00:00\",\r\n    \"dataUltimoAcesso\": \"2020-08-21T00:00:00\",\r\n    \"idPerfil\": \"123FB88A-5C05-42B9-A509-790F8C3A2F09\"\r\n        \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/usuario/2428f5b7-9ca7-4994-bc5e-6aec198f35fa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"usuario",
+								"2428f5b7-9ca7-4994-bc5e-6aec198f35fa"
+							]
+						},
+						"description": "Esse método edita as informações do usuário cadastrado"
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJNYXJpYSBFZHVhcmRhIFNpbHZhIiwiZW1haWwiOiJNYWR1U2lsdmFARW1haWwuY29tIiwianRpIjoiNGY2ZDM2ZjAtMjgyNi00ZjFiLTg1NWEtYzE3NGQ0MWZkMmRlIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE2MDE2NjE2MzQsImlzcyI6ImVkdXguY29tIiwiYXVkIjoiZWR1eC5jb20ifQ.oKeK72Ysikc1u13wJoen2KTJXcksSWRppsbKrGQLRQU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idUsuario\" : \"2428f5b7-9ca7-4994-bc5e-6aec198f35fa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/usuario/2428f5b7-9ca7-4994-bc5e-6aec198f35fa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"usuario",
+								"2428f5b7-9ca7-4994-bc5e-6aec198f35fa"
+							]
+						},
+						"description": "Esse método remove o usuario cadastrado"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Instituicao",
+			"item": [
+				{
+					"name": "Adicionar Instituição",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJNYXJpYSBFZHVhcmRhIFNpbHZhIiwiZW1haWwiOiJNYWR1U2lsdmFARW1haWwuY29tIiwianRpIjoiZmQxZGE0NTMtNTJmZi00MTJmLWFiZDQtYzM0NzE5MTg4MjU1IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE2MDE2NTgzMzMsImlzcyI6ImVkdXguY29tIiwiYXVkIjoiZWR1eC5jb20ifQ.WOvlhsCYjs2msuWbKepbVjBJ6amK94_Px7Q7mAhQnSc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\" : \"Escola Senai de Informática\",\r\n    \"logradouro\" : \"Alameda Barão de Limeira\",\r\n    \"numero\" : \"539\",\r\n    \"bairro\" : \"Santa Cecilia\",\r\n    \"cidade\" : \"São Paulo\",\r\n    \"complemento\" : \"Ao lado do mercado Dia\",\r\n    \"cep\" : \"01202-001\",\r\n    \"uf\" : \"SP\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/instituicao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"instituicao"
+							]
+						},
+						"description": "Esse método adiciona uma instituição"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Instituições",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\" : \"Colegio Nova Geracao\",\r\n    \"logradouro\" : \"Rua Alberto Freitas\",\r\n    \"numero\" : \"451\",\r\n    \"bairro\" : \"Limoeiro\",\r\n    \"cidade\" : \"São Paulo\",\r\n    \"complemento\" : \"Em frente ao mercado Extra\",\r\n    \"cep\" : \"25410587\",\r\n    \"uf\" : \"SP\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/instituicao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"instituicao"
+							]
+						},
+						"description": "Esse método busca todas as instituições cadastradas"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Instituições por ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\" : \"Colegio Nova Geracao\",\r\n    \"logradouro\" : \"Rua Alberto Freitas\",\r\n    \"numero\" : \"451\",\r\n    \"bairro\" : \"Limoeiro\",\r\n    \"cidade\" : \"São Paulo\",\r\n    \"complemento\" : \"Em frente ao mercado Extra\",\r\n    \"cep\" : \"25410587\",\r\n    \"uf\" : \"SP\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/instituicao/6b88a9b3-e39b-48e9-abab-3b2e6ac016e3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"instituicao",
+								"6b88a9b3-e39b-48e9-abab-3b2e6ac016e3"
+							]
+						},
+						"description": "Esse método busca as instituições cadastradas pelo ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Instituição",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"idInstituicao\": \"6b88a9b3-e39b-48e9-abab-3b2e6ac016e3\",\r\n            \"nome\": \"Centro Educacional Sesi 094\",\r\n            \"logradouro\": \"Rua Campos do Jordão\",\r\n            \"numero\": \"123\",\r\n            \"bairro\": \"Vila Clarice\",\r\n            \"cidade\": \"Santo André\",\r\n            \"complemento\": \"Perto do mercado chama\",\r\n            \"cep\": \"04597625\",\r\n            \"uf\": \"SP\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/instituicao/6b88a9b3-e39b-48e9-abab-3b2e6ac016e3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"instituicao",
+								"6b88a9b3-e39b-48e9-abab-3b2e6ac016e3"
+							]
+						},
+						"description": "Esse método edita as informações da instituição cadastrada"
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Instituição",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idInstituicao\": \"6fb8b39d-1ad0-4aae-89aa-a83dacd25a1d\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/instituicao/07e90de8-43e9-47f9-b632-4fa70227eb34",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"instituicao",
+								"07e90de8-43e9-47f9-b632-4fa70227eb34"
+							]
+						},
+						"description": "Esse método remove uma instituição cadastrada"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Curso",
+			"item": [
+				{
+					"name": "Adicionar Curso",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJNYXJpYSBFZHVhcmRhIFNpbHZhIiwiZW1haWwiOiJNYWR1U2lsdmFARW1haWwuY29tIiwianRpIjoiNTg5MjkxODMtZTcwZi00YjY5LTllMGEtZDA1OWZhZGVjZTNhIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE2MDE2NjEwOTAsImlzcyI6ImVkdXguY29tIiwiYXVkIjoiZWR1eC5jb20ifQ.mWGnPUp34i0IOvdewebg-sbOzRuIoR5okqIYUWPd8aQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Titulo\" : \"Desenvolvimento de Sistemas\",\r\n    \"IdInstituicao\" : \"ad79e41c-145c-404c-8ca4-84d0afaad65d\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/curso/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"curso",
+								""
+							]
+						},
+						"description": "Esse método adiciona um curso"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Cursos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJNYXJpYSBFZHVhcmRhIFNpbHZhIiwiZW1haWwiOiJNYWR1U2lsdmFARW1haWwuY29tIiwianRpIjoiNTg5MjkxODMtZTcwZi00YjY5LTllMGEtZDA1OWZhZGVjZTNhIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE2MDE2NjEwOTAsImlzcyI6ImVkdXguY29tIiwiYXVkIjoiZWR1eC5jb20ifQ.mWGnPUp34i0IOvdewebg-sbOzRuIoR5okqIYUWPd8aQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:64698/api/curso/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"curso",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Cursos por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:64698/api/curso/239ad6d4-888b-4d12-b308-6453709ac555",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"curso",
+								"239ad6d4-888b-4d12-b308-6453709ac555"
+							]
+						},
+						"description": "Esse método lista todos os cursos"
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Curso",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idCurso\": \"239ad6d4-888b-4d12-b308-6453709ac555\",\r\n    \"Titulo\" : \"Ensino Fundamental\",\r\n    \"IdInstituicao\" : \"6b88a9b3-e39b-48e9-abab-3b2e6ac016e3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/curso/239ad6d4-888b-4d12-b308-6453709ac555",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"curso",
+								"239ad6d4-888b-4d12-b308-6453709ac555"
+							]
+						},
+						"description": "Esse método edita as informações do curso cadastrado"
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Curso",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:64698/api/curso/6bdacb86-b543-48bf-907f-2e2e62fbab10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"curso",
+								"6bdacb86-b543-48bf-907f-2e2e62fbab10"
+							]
+						},
+						"description": "Esse método remove um curso cadastrado"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Categoria",
+			"item": [
+				{
+					"name": "Adicionar Categoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJWaW5pY2l1cyBBbHZlcyIsImVtYWlsIjoiVmluaWNpdXNARW1haWwuY29tIiwianRpIjoiZGMxNWFjYzYtMGFiNS00OGFhLTg0NWUtYzU4OTA2NjQzMGRjIiwiZXhwIjoxNjAxNjAxMjg1LCJpc3MiOiJlZHV4LmNvbSIsImF1ZCI6ImVkdXguY29tIn0.88E3HLQ9kTG7WbAXQuWBz5Uxt0inZ-zwmQZDcR3tULQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n        \"tipo\": \"CategoriaTeste\"\r\n        \r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/categoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"categoria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Categorias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:64698/api/categoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"categoria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Categoria Por ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJNYXJpYSBFZHVhcmRhIFNpbHZhIiwiZW1haWwiOiJNYWR1U2lsdmFARW1haWwuY29tIiwianRpIjoiNGY2ZDM2ZjAtMjgyNi00ZjFiLTg1NWEtYzE3NGQ0MWZkMmRlIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE2MDE2NjE2MzQsImlzcyI6ImVkdXguY29tIiwiYXVkIjoiZWR1eC5jb20ifQ.oKeK72Ysikc1u13wJoen2KTJXcksSWRppsbKrGQLRQU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:64698/api/categoria/8a81d7ec-1b17-4007-b4f8-466b58adb0dc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"categoria",
+								"8a81d7ec-1b17-4007-b4f8-466b58adb0dc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Categoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJWaW5pY2l1cyBBbHZlcyIsImVtYWlsIjoiVmluaWNpdXNARW1haWwuY29tIiwianRpIjoiODk5MjNkNmItNmYwZS00NmI3LWE1MTAtZTlhYzU4Y2ZhZjNiIiwiZXhwIjoxNjAxNjAyMTM3LCJpc3MiOiJlZHV4LmNvbSIsImF1ZCI6ImVkdXguY29tIn0.4FSjRDteJ_sWfdg_7lLCx7PpTNS9YKJ9bNR8750wd68",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"idCategoria\": \"dec1e76d-6d61-42f0-a8fa-0731526e88e9\",\r\n        \"tipo\": \"CategoriaTeste5\",\r\n        \"objetivo\": []\r\n        \r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/categoria/dec1e76d-6d61-42f0-a8fa-0731526e88e9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"categoria",
+								"dec1e76d-6d61-42f0-a8fa-0731526e88e9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Categoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJWaW5pY2l1cyBBbHZlcyIsImVtYWlsIjoiVmluaWNpdXNARW1haWwuY29tIiwianRpIjoiNDhlOGE2NzgtODBiNi00NmU3LWExYWItNzYxMzJmOWI0YTk1IiwiZXhwIjoxNjAxNjAyMzM1LCJpc3MiOiJlZHV4LmNvbSIsImF1ZCI6ImVkdXguY29tIn0.mFygi7gMQCF5zXqgmq7jAldfQ6Q6vGUPlWdcW2d6cVI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"idCategoria\": \"dec1e76d-6d61-42f0-a8fa-0731526e88e9\",\r\n        \"tipo\": \"CategoriaTeste5\",\r\n        \"objetivo\": []\r\n        \r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/categoria/dec1e76d-6d61-42f0-a8fa-0731526e88e9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"categoria",
+								"dec1e76d-6d61-42f0-a8fa-0731526e88e9"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Objetivo",
+			"item": [
+				{
+					"name": "Adicionar Objetivo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricao\": null,\r\n    \"idCategoria\": null,\r\n    \"idCategoriaNavigation\": null,\r\n    \"objetivoAluno\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/objetivo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"objetivo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Objetivos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJNYXJpYSBFZHVhcmRhIFNpbHZhIiwiZW1haWwiOiJNYWR1U2lsdmFARW1haWwuY29tIiwianRpIjoiNGY2ZDM2ZjAtMjgyNi00ZjFiLTg1NWEtYzE3NGQ0MWZkMmRlIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE2MDE2NjE2MzQsImlzcyI6ImVkdXguY29tIiwiYXVkIjoiZWR1eC5jb20ifQ.oKeK72Ysikc1u13wJoen2KTJXcksSWRppsbKrGQLRQU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:64698/api/objetivo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"objetivo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar objetivo por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:64698/api/objetivo/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"objetivo",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Objetivo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idObjetivo\": \"ce6d56cf-9317-43cf-9077-21d79083b9a5\",\r\n    \"descricao\": null,\r\n    \"idCategoria\": null,\r\n    \"idCategoriaNavigation\": null,\r\n    \"objetivoAluno\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/objetivo/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"objetivo",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Objetivo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/objetivo/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"objetivo",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Turma",
+			"item": [
+				{
+					"name": "Adicionar Turma",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJNYXJpYSBFZHVhcmRhIFNpbHZhIiwiZW1haWwiOiJNYWR1U2lsdmFARW1haWwuY29tIiwianRpIjoiNGY2ZDM2ZjAtMjgyNi00ZjFiLTg1NWEtYzE3NGQ0MWZkMmRlIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE2MDE2NjE2MzQsImlzcyI6ImVkdXguY29tIiwiYXVkIjoiZWR1eC5jb20ifQ.oKeK72Ysikc1u13wJoen2KTJXcksSWRppsbKrGQLRQU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricao\": \"2S2020DT\",\r\n    \"IdCurso\": \"8006E537-9000-4CE4-AF77-C79F5D25A79D\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/turma",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"turma"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Turmas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJNYXJpYSBFZHVhcmRhIFNpbHZhIiwiZW1haWwiOiJNYWR1U2lsdmFARW1haWwuY29tIiwianRpIjoiNGY2ZDM2ZjAtMjgyNi00ZjFiLTg1NWEtYzE3NGQ0MWZkMmRlIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE2MDE2NjE2MzQsImlzcyI6ImVkdXguY29tIiwiYXVkIjoiZWR1eC5jb20ifQ.oKeK72Ysikc1u13wJoen2KTJXcksSWRppsbKrGQLRQU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:64698/api/turma",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"turma"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Turma por ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJNYXJpYSBFZHVhcmRhIFNpbHZhIiwiZW1haWwiOiJNYWR1U2lsdmFARW1haWwuY29tIiwianRpIjoiNGY2ZDM2ZjAtMjgyNi00ZjFiLTg1NWEtYzE3NGQ0MWZkMmRlIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE2MDE2NjE2MzQsImlzcyI6ImVkdXguY29tIiwiYXVkIjoiZWR1eC5jb20ifQ.oKeK72Ysikc1u13wJoen2KTJXcksSWRppsbKrGQLRQU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:64698/api/turma/e8aea810-616c409d-98b71427503a2b92",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"turma",
+								"e8aea810-616c409d-98b71427503a2b92"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Turma",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idTurma\": \"e8aea810-616c-409d-98b7-1427503a2b92\",\r\n        \"descricao\": \"2S2020DT\",\r\n        \"idCurso\": \"8006e537-9000-4ce4-af77-c79f5d25a79d\",\r\n        \"idCursoNavigation\": null,\r\n        \"alunoTurma\": [],\r\n        \"professorTurma\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/turma/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"turma",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Turma",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/turma/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"turma",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Aluno Turma",
+			"item": [
+				{
+					"name": "Listar AlunoTurma",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/AlunoTurma",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"AlunoTurma"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Aluno Turma por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:64698/api/AlunoTurma/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"AlunoTurma",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adicionar Aluno Turma",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/AlunoTurma",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"AlunoTurma"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Aluno Turma",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/AlunoTurma/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"AlunoTurma",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Aluno Turma",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/AlunoTurma/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"AlunoTurma",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "ObjetivoAluno",
+			"item": [
+				{
+					"name": "Adicionar ObjetivoAluno",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"nota\":\"\" ,\r\n        \"dataAlcancado\":\"\" ,\r\n        \"idAlunoTurma\": \"\",\r\n        \"idObjetivo\":\"\" ,\r\n        \"idAlunoTurmaNavigation\":\"\" ,\r\n        \"idObjetivoNavigation\": \"\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/objetivoaluno",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"objetivoaluno"
+							]
+						},
+						"description": "                "
+					},
+					"response": []
+				},
+				{
+					"name": "Listar ObjetivoAluno",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/objetivoaluno",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"objetivoaluno"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar ObjetivoAluno por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:64698/api/objetivoaluno/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"objetivoaluno",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover ObjetivoAluno",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/objetivoaluno",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"objetivoaluno"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar ObjetivoAluno",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"idObjetivoAluno\": \"8724d0d5-a064-4468-b36b-36daf3a00ed6\",\r\n        \"nota\": 9.4490,\r\n        \"dataAlcancado\": \"2020-09-02T00:00:00\",\r\n        \"idAlunoTurma\": null,\r\n        \"idObjetivo\": null,\r\n        \"idAlunoTurmaNavigation\": null,\r\n        \"idObjetivoNavigation\": null\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/objetivoaluno",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"objetivoaluno"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "ProfessorTurma",
+			"item": [
+				{
+					"name": "Listar ProfessorTurma",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/professorturma",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"professorturma"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar ProfessorTurma por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:64698/api/professorturma/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"professorturma",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adicionar ProfessorTurma",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/professorturma",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"professorturma"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover ProfessorTurma",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/professorturma/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"professorturma",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar ProfessorTurma",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idProfessorUsuario\": \"ca0a3fac-a8bb-4a65-93de-d6b49f5c975b\",\r\n    \"descricao\": null,\r\n    \"idUsuario\": null,\r\n    \"idTurma\": null,\r\n    \"idTurmaNavigation\": null,\r\n    \"idUsuarioNavigation\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/professorturma/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"professorturma",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Dica",
+			"item": [
+				{
+					"name": "Adicionar Dica",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Texto",
+									"value": "Texto da Imagem",
+									"type": "text"
+								},
+								{
+									"key": "IdUsuario",
+									"value": "7A016104-854B-4BC2-834F-C20BD42C391E",
+									"type": "text"
+								},
+								{
+									"key": "Imagem",
+									"type": "file",
+									"src": "/C:/Users/fic/Downloads/dev2maria (favor n apagar)/printerro.PNG"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/dica",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"dica"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista Dica",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:64698/api/dica",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"dica"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Dica pelo ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJNYXJpYSBFZHVhcmRhIFNpbHZhIiwiZW1haWwiOiJNYWR1U2lsdmFARW1haWwuY29tIiwianRpIjoiNGY2ZDM2ZjAtMjgyNi00ZjFiLTg1NWEtYzE3NGQ0MWZkMmRlIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE2MDE2NjE2MzQsImlzcyI6ImVkdXguY29tIiwiYXVkIjoiZWR1eC5jb20ifQ.oKeK72Ysikc1u13wJoen2KTJXcksSWRppsbKrGQLRQU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:64698/api/dica/592d57be-420d-4b65-9bbe-0bac534dcdb4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"dica",
+								"592d57be-420d-4b65-9bbe-0bac534dcdb4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Dica",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n       \"idDica\": \"592d57be-420d-4b65-9bbe-0bac534dcdb4\",\r\n        \"texto\": \"Teste\",\r\n        \"idUsuario\": \"7a016104-854b-4bc2-834f-c20bd42c391e\",\r\n        \"idUsuarioNavigation\": null,\r\n        \"curtida\": []\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/dica/592d57be-420d-4b65-9bbe-0bac534dcdb4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"dica",
+								"592d57be-420d-4b65-9bbe-0bac534dcdb4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Dica",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n       \"idDica\": \"8f4d2488-e100-42a0-97a7-5f75d5cd6625\",\r\n        \"texto\": \"Teste\",\r\n        \"idUsuario\": \"7a016104-854b-4bc2-834f-c20bd42c391e\",\r\n        \"idUsuarioNavigation\": null,\r\n        \"curtida\": []\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/dica/8f4d2488-e100-42a0-97a7-5f75d5cd6625",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"dica",
+								"8f4d2488-e100-42a0-97a7-5f75d5cd6625"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Curtida",
+			"item": [
+				{
+					"name": "Listar Curtida",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJIZW5yaXF1ZSBMZWFuZHJvIiwiZW1haWwiOiJIZW5yaXF1ZTIyQGdtYWlsLmNvbSIsImp0aSI6ImZkOTM4YThhLTc5MDctNDQ5NS04NTI2LWNjYWUxYWExMGFjYSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluaXN0cmFkb3IiLCJleHAiOjE2MDA0NTE5MDEsImlzcyI6Im55b3VzLmNvbS5iciIsImF1ZCI6Im55b3VzLmNvbS5iciJ9._U1rYCZ3Qk5Ghu3EIiK7rDO5gwEFjCP1WqHx41m4wTI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:64698/api/curtida",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "64698",
+							"path": [
+								"api",
+								"curtida"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
