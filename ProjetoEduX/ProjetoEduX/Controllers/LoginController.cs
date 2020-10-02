@@ -30,13 +30,14 @@ namespace ProjetoEduX.Controllers
         }
 
         // Chamamos nosso método para validar nosso usuário da aplicação
-        private Usuario AuthenticateUser(Usuario login)
-        {
-            return _context.Usuario.Include(a => a.IdPerfilNavigation).FirstOrDefault(u => u.Email == login.Email && u.Senha == login.Senha);
-        }
 
-        // Criamos nosso método que vai gerar nosso Token
-        private string GenerateJSONWebToken(Usuario userInfo)
+            private Usuario AuthenticateUser(Usuario login)
+            {
+                return _context.Usuario.Include(a => a.IdPerfilNavigation).FirstOrDefault(u => u.Email == login.Email && u.Senha == login.Senha);
+            }
+
+            // Criamos nosso método que vai gerar nosso Token
+            private string GenerateJSONWebToken(Usuario userInfo)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
@@ -83,5 +84,7 @@ namespace ProjetoEduX.Controllers
 
             return response;
         }
+
+        
     }
 }

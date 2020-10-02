@@ -67,9 +67,10 @@ namespace ProjetoEduX.Controllers
         }
 
         /// <summary>
-        /// Cadastar um Curso
+        /// Cadastrar um curso
         /// </summary>
         /// <param name="curso"></param>
+        /// <returns>curso</returns>
         [HttpPost]
         public IActionResult Post(Curso curso)
         {

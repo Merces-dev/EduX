@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProjetoEduX.Domains;
 using ProjetoEduX.Interfaces;
@@ -81,6 +82,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="perfil">Objeto completo de perfil</param>
         /// <returns>perfil cadastrado</returns>
         [HttpPost]
+
         public IActionResult Post(Perfil perfil)
         {
             try
@@ -107,6 +109,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="perfil">Objeto do perfil com alterações</param>
         /// <returns>perfil alterado</returns>
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Put(Guid id, Perfil perfil)
         {
             try
@@ -129,6 +132,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id">Id do perfil</param>
         /// <returns>Id excluido</returns>
         [HttpDelete("{id}")]
+        [Authorize(Roles ="Admin")]
         public IActionResult Delete(Guid id)
         {
             try
